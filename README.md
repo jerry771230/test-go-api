@@ -31,6 +31,28 @@ When the api service is running, you will see
 
 Press `ctrl + c` to interrupt the api service.
 
+### Test API
+
+```bash
+curl -v http://localhost:8089/
+```
+
+The log as follows,
+
+```pre
+{"level":"info","ts":1647930052.5548303,"caller":"internal/main.go:26","msg":"Hello Go"}
+```
+
+```bash
+curl -X POST -v http://localhost:8089/post_json -H "Content-type: application/json" -d "{\"first_name\" : \"John\", \"last_name\" : \"Smith\"}"
+```
+
+The log as follows,
+
+```pre
+{"level":"info","ts":1647930120.8995447,"caller":"internal/main.go:50","msg":"{\"first_name\":\"John\",\"last_name\":\"Smith\"}"}
+```
+
 ## Ref
 
 - [How to Parse a JSON Request Body in Go](https://www.alexedwards.net/blog/how-to-properly-parse-a-json-request-body)
