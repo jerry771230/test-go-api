@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  web:
+    image: golang:1.17-alpine
+    tty: true
+    command: /bin/ash
+    container_name: test-web
+    ports:
+        - "8089:8089"
+    working_dir: /srv
+    volumes:
+        - .:/srv
