@@ -2,6 +2,31 @@
 
 Testing purpose.
 
+## Work process
+
+### Use docker
+
+Makefile command,
+
+- `make docker.build`: Build image.
+- `make docker.run`: Create a container.
+- `make docker.remove`: Destroy the container.
+- `make docker.logs`: Monitor the container.
+
+You need to build the image before starting the api service,,
+
+```bash
+make docker.build
+```
+
+Then execute as follows,
+
+```bash
+make docker.remove; make docker.run; make docker.logs
+```
+
+### Use docker-compose
+
 Makefile command,
 
 - `make run`: Create a container.
@@ -9,17 +34,15 @@ Makefile command,
 - `make go_run`: Start api service.
 - `make mod_vendor`: Download dependencies. Execute once. This command must be executed before starting the api server.
 
-## Work process
-
 The first time, execute as follows,
 
-```pre
+```bash
 make remove; make run; make mod_vendor; make go_run;
 ```
 
 After that just execute,
 
-```pre
+```bash
 make remove; make run; make go_run;
 ```
 
